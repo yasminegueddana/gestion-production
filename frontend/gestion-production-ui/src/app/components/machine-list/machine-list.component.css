@@ -1,0 +1,52 @@
+.machine-list-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.machine-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.machine-table th,
+.machine-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.machine-table th {
+  background-color: #f4f4f4;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #1976d2;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}

@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()" #ordreForm="ngForm">
+  <div>
+    <label for="quantite">Quantité:</label>
+    <input type="number" id="quantite" name="quantite" [(ngModel)]="ordre.quantite" required>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" [(ngModel)]="ordre.date" required>
+  </div>
+
+  <div>
+    <label for="statut">Statut:</label>
+    <input type="text" id="statut" name="statut" [(ngModel)]="ordre.statut" required>
+  </div>
+
+  <div>
+    <label for="machine">Machine:</label>
+    <select id="machine" name="machine" [(ngModel)]="ordre.machine" required>
+      <option *ngFor="let machine of machines" [value]="machine.id">{{ machine.nom }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="produit">Produit:</label>
+    <select id="produit" name="produit" [(ngModel)]="ordre.produit" required>
+      <option *ngFor="let produit of produits" [value]="produit.id">{{ produit.nom }}</option>
+    </select>
+  </div>
+
+  <button type="submit">Modifier l'ordre de fabrication/>

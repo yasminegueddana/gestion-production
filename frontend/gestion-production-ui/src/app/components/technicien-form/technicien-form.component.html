@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" [(ngModel)]="technicien.nom" name="nom" required />
+  </div>
+  <div>
+    <label for="competences">Compétences :</label>
+    <input type="text" id="competences" [(ngModel)]="technicien.competences" name="competences" required />
+  </div>
+  <button type="submit">Ajouter</button>
+</form>
+

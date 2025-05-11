@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Liste des Fournisseurs</h2>
+    
+    <div class="header-row">
+        <button class="add-button" routerLink="/fournisseurs/add">
+          Ajouter un Fournisseur
+        </button>
+      </div>
+  
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Téléphone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fournisseur of fournisseurs">
+            <td>{{ fournisseur.id }}</td>
+            <td>{{ fournisseur.nom }}</td>
+            <td>{{ fournisseur.adresse }}</td>
+            <td>{{ fournisseur.telephone }}</td>
+            <td class="actions">
+              <button class="edit" (click)="editFournisseur(fournisseur.id)">Modifier</button>
+              <button class="delete" (click)="deleteFournisseur(fournisseur.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

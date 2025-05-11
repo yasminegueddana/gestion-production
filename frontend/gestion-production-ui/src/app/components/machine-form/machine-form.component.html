@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" #machineForm="ngForm">
+  <div>
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" required [(ngModel)]="machine.nom">
+  </div>
+
+  <div>
+    <label for="etat">État:</label>
+    <input type="text" id="etat" name="etat" required [(ngModel)]="machine.etat">
+  </div>
+
+  <div>
+    <label for="maintenanceProchaine">Maintenance Prochaine:</label>
+    <input type="date" id="maintenanceProchaine" name="maintenanceProchaine"
+       [(ngModel)]="machine.maintenanceProchaine" [min]="today" required>
+
+  </div>
+
+  <button type="submit">Ajouter la machine</button>
+</form>

@@ -1,0 +1,16 @@
+<div class="machine-edit-container">
+  <h2>Modifier une machine</h2>
+  <form [formGroup]="machineForm" (ngSubmit)="onSubmit()">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" formControlName="nom" />
+
+    <label for="etat">État :</label>
+    <input type="text" id="etat" formControlName="etat" />
+
+    <label for="maintenanceProchaine">Date de la prochaine maintenance :</label>
+    <input type="date" id="maintenanceProchaine" formControlName="maintenanceProchaine" [min]="today">
+
+
+    <button type="submit" [disabled]="machineForm.invalid">Mettre à jour</button>
+  </form>
+</div>

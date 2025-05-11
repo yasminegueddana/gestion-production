@@ -1,0 +1,43 @@
+<div class="edit-container">
+  <h2>Modifier le Produit</h2>
+
+  <form [formGroup]="produitForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" formControlName="nom" />
+      <div *ngIf="produitForm.get('nom')?.invalid && produitForm.get('nom')?.touched" class="error">
+        Le nom est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" id="type" formControlName="type" />
+      <div *ngIf="produitForm.get('type')?.invalid && produitForm.get('type')?.touched" class="error">
+        Le type est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock</label>
+      <input type="number" id="stock" formControlName="stock" />
+      <div *ngIf="produitForm.get('stock')?.invalid && produitForm.get('stock')?.touched" class="error">
+        Le stock doit être un nombre positif.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fournisseurId">Fournisseur</label>
+      <select id="fournisseurId" formControlName="fournisseurId">
+        <option value="">-- Choisir un fournisseur --</option>
+        <option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur.id">
+          {{ fournisseur.nom }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="produitForm.invalid" class="btn-save">
+      Mettre à jour
+    </button>
+  </form>
+</div>

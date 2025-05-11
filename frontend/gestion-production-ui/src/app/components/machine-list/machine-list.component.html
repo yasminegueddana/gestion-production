@@ -1,0 +1,33 @@
+<div class="machine-list-container"> 
+  <h2>Liste des Machines</h2>
+
+  <button [routerLink]="['/machines/add']">Ajouter une machine</button>
+
+  <table class="machine-table" *ngIf="machines.length > 0; else noMachines">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>État</th>
+        <th>Date de la prochaine maintenance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let machine of machines">
+        <td>{{ machine.id }}</td>
+        <td>{{ machine.nom }}</td>
+        <td>{{ machine.etat }}</td>
+        <td>{{ machine.maintenanceProchaine | date:'yyyy-MM-dd' }}</td>
+        <td>
+          <button class="edit-btn" (click)="editMachine(machine.id)">Modifier</button>
+          <button class="delete-btn" (click)="deleteMachine(machine.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noMachines>
+    <p>Aucune machine trouvée.</p>
+  </ng-template>
+</div>

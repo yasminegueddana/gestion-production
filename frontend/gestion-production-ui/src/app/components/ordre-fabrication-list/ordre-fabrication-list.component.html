@@ -1,0 +1,37 @@
+<div class="ordre-list-container">
+  <h2>Liste des Ordres de Fabrication</h2>
+
+  <button [routerLink]="['/ordres/add']">Ajouter un ordre</button>
+
+  <table class="ordre-table" *ngIf="ordresFabrication.length > 0; else noOrdres">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Quantité</th>
+        <th>Date</th>
+        <th>Statut</th>
+        <th>Machine</th>
+        <th>Produit</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ordre of ordresFabrication">
+        <td>{{ ordre.id }}</td>
+        <td>{{ ordre.quantite }}</td>
+        <td>{{ ordre.date | date }}</td>
+        <td>{{ ordre.statut }}</td>
+        <td>{{ ordre.machine.nom }}</td>
+        <td>{{ ordre.produit.nom }}</td>
+        <td>
+          <button class="edit-btn" (click)="editOrdre(ordre.id)">Modifier</button>
+          <button class="delete-btn" (click)="deleteOrdre(ordre.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noOrdres>
+    <p>Aucun ordre de fabrication trouvé.</p>
+  </ng-template>
+</div>
